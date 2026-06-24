@@ -1,0 +1,514 @@
+<!DOCTYPE html>
+<html lang="ko">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>두부교 - 아침 의식 안내 | Tofuism - Morning Ritual</title>
+  <style>
+    @import url('https://fonts.googleapis.com/css2?family=Nanum+Gothic&display=swap');
+
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
+
+    body {
+      background: #000080;
+      font-family: 'Nanum Gothic', Arial, sans-serif;
+      padding: 8px;
+      min-height: 100vh;
+    }
+
+    /* ── MARQUEE ── */
+    .marquee-bar {
+      background: yellow;
+      color: #000080;
+      font-weight: bold;
+      font-size: 13px;
+      padding: 3px 0;
+      margin-bottom: 6px;
+      overflow: hidden;
+      white-space: nowrap;
+    }
+
+    .marquee-inner {
+      display: inline-block;
+      animation: marquee 22s linear infinite;
+    }
+
+    @keyframes marquee {
+      0% {
+        transform: translateX(100vw);
+      }
+
+      100% {
+        transform: translateX(-100%);
+      }
+    }
+
+    /* ── MAIN TABLE ── */
+    .main-table {
+      width: 100%;
+      border: 3px ridge #c0c0c0;
+      background: #c0c0c0;
+      border-collapse: collapse;
+    }
+
+    .main-table td {
+      vertical-align: top;
+    }
+
+    /* ── HEADER ── */
+    .header-cell {
+      background: #000080;
+      text-align: center;
+      padding: 10px;
+      border-bottom: 2px solid #808080;
+    }
+
+    .lang-switcher {
+      text-align: right;
+      margin-bottom: 6px;
+    }
+
+    .lang-btn {
+      background: #c0c0c0;
+      border: 2px outset #ffffff;
+      font-size: 11px;
+      font-weight: bold;
+      padding: 2px 8px;
+      cursor: pointer;
+      color: #000080;
+      font-family: Arial, sans-serif;
+    }
+
+    .lang-btn:active {
+      border-style: inset;
+    }
+
+    .lang-btn.active {
+      background: #000080;
+      color: yellow;
+      border-style: inset;
+    }
+
+    .tofu-logo {
+      font-size: 72px;
+      line-height: 1;
+      display: block;
+      margin-bottom: 4px;
+    }
+
+    .site-title {
+      font-size: 28px;
+      font-weight: bold;
+      color: #ffffff;
+      text-shadow: 2px 2px #808080;
+      letter-spacing: 4px;
+      font-family: 'Impact', Arial Black, sans-serif;
+    }
+
+    .site-subtitle {
+      font-size: 11px;
+      color: #808080;
+      font-style: italic;
+      margin-top: 2px;
+    }
+
+    .stars {
+      color: #ffd700;
+      font-size: 14px;
+      letter-spacing: 2px;
+      margin-top: 4px;
+    }
+
+    /* ── NAV ── */
+    .nav-cell {
+      background: #000080;
+      padding: 8px;
+      width: 160px;
+      min-width: 160px;
+      border-right: 2px ridge #c0c0c0;
+    }
+
+    .nav-title {
+      color: yellow;
+      font-size: 12px;
+      font-weight: bold;
+      text-align: center;
+      border-bottom: 1px solid yellow;
+      margin-bottom: 6px;
+      padding-bottom: 3px;
+      letter-spacing: 1px;
+    }
+
+    .nav-item {
+      display: block;
+      color: #ffffff;
+      font-size: 12px;
+      text-decoration: none;
+      padding: 3px 0;
+      border-bottom: 1px dotted #404080;
+    }
+
+    .nav-item::before {
+      content: "▶ ";
+      color: yellow;
+      font-size: 10px;
+    }
+
+    .nav-item:hover {
+      color: yellow;
+      background: #000040;
+    }
+
+    .nav-item.active-page {
+      color: yellow;
+      font-weight: bold;
+    }
+
+    .new-badge {
+      background: red;
+      color: white;
+      font-size: 9px;
+      font-weight: bold;
+      padding: 1px 3px;
+      vertical-align: middle;
+      animation: blink 1s step-end infinite;
+    }
+
+    .counter-box {
+      background: #000040;
+      border: 1px solid #808080;
+      padding: 4px 8px;
+      text-align: center;
+      margin-top: 8px;
+    }
+
+    .counter-label {
+      color: #808080;
+      font-size: 10px;
+    }
+
+    .counter-num {
+      color: #00ff00;
+      font-size: 14px;
+      font-family: 'Courier New', monospace;
+      font-weight: bold;
+      letter-spacing: 2px;
+    }
+
+    .online-label {
+      font-size: 10px;
+      color: #ffff00;
+      margin-bottom: 3px;
+      margin-top: 10px;
+      text-align: center;
+    }
+
+    .online-num {
+      color: #00ffff;
+      font-size: 12px;
+      font-family: monospace;
+      text-align: center;
+    }
+
+    /* ── CONTENT ── */
+    .content-cell {
+      background: white;
+      padding: 12px;
+    }
+
+    .page-title-box {
+      background: #000080;
+      color: yellow;
+      font-size: 15px;
+      font-weight: bold;
+      padding: 5px 10px;
+      margin-bottom: 12px;
+      text-align: center;
+      border: 2px ridge #c0c0c0;
+    }
+
+    .section {
+      margin-bottom: 14px;
+    }
+
+    .section-header {
+      background: #000080;
+      color: yellow;
+      font-size: 13px;
+      font-weight: bold;
+      padding: 3px 8px;
+      margin-bottom: 6px;
+    }
+
+    .section-body {
+      font-size: 12px;
+      color: #333;
+      line-height: 1.8;
+      padding: 0 4px;
+    }
+
+    .divider {
+      border: none;
+      border-top: 2px solid #808080;
+      margin: 8px 0;
+    }
+
+    .back-btn {
+      display: inline-block;
+      background: #c0c0c0;
+      border: 2px outset #ffffff;
+      color: #000080;
+      font-size: 11px;
+      font-weight: bold;
+      padding: 2px 8px;
+      text-decoration: none;
+      margin-bottom: 10px;
+      font-family: Arial, sans-serif;
+    }
+
+    .back-btn:hover {
+      background: #d0d0d0;
+    }
+
+    .back-btn:active {
+      border-style: inset;
+    }
+
+    /* ── PHOTO GRID ── */
+    .photo-grid {
+      display: grid;
+      grid-template-columns: repeat(2, 1fr);
+      gap: 10px;
+      margin-top: 8px;
+    }
+
+    .photo-slot {
+      border: 3px ridge #c0c0c0;
+      background: #eeeeee;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      overflow: hidden;
+      position: relative;
+    }
+
+    .photo-slot img {
+      width: 100%;
+      height: auto;
+      object-fit: contain;
+      display: block;
+    }
+
+    .photo-placeholder {
+      color: #999;
+      font-size: 11px;
+      text-align: center;
+      padding: 8px;
+    }
+
+    /* ── FOOTER ── */
+    .footer-cell {
+      background: #e0e0e0;
+      border-top: 2px ridge #c0c0c0;
+      text-align: center;
+      padding: 4px;
+      font-size: 10px;
+      color: #808080;
+    }
+
+    .best-viewed {
+      color: #aaaaaa;
+      font-size: 10px;
+      text-align: center;
+      margin-top: 4px;
+    }
+
+    /* ── ANIMATIONS ── */
+    .blink {
+      animation: blink 1s step-end infinite;
+    }
+
+    @keyframes blink {
+
+      0%,
+      100% {
+        opacity: 1;
+      }
+
+      50% {
+        opacity: 0;
+      }
+    }
+  </style>
+</head>
+
+<body>
+
+  <!-- MARQUEE -->
+  <div class="marquee-bar">
+    <span class="marquee-inner" id="marquee-text">
+      ✦ 아침 의식은 신앙의 시작입니다 ✦ 두부신님을 매일 아침 맞이하세요 ✦ THE MORNING RITUAL OF TOFUISM ✦
+    </span>
+  </div>
+
+  <table class="main-table" cellpadding="0" cellspacing="0">
+
+    <!-- HEADER -->
+    <tr>
+      <td class="header-cell" colspan="2">
+        <div class="lang-switcher">
+          <button class="lang-btn active" id="btn-kr" onclick="setLang('kr')">한국어</button>
+          <button class="lang-btn" id="btn-en" onclick="setLang('en')">ENGLISH</button>
+        </div>
+        <img src="16714_20994_5818.png" alt="두부교 로고" style="width: 120px; height: auto; display: block; margin: 0 auto 8px;"></img>
+        <div class="site-title" id="site-title">두 부 교</div>
+        <div class="site-subtitle">― Tofuism Official Homepage v2.1 ―</div>
+        <div class="stars">★ ★ ★ ★ ★</div>
+      </td>
+    </tr>
+
+    <!-- BODY -->
+    <tr>
+
+      <!-- NAV -->
+      <td class="nav-cell">
+        <div class="nav-title">☰ MENU</div>
+        <a class="nav-item" data-kr="홈" data-en="Home" href="index.html">홈</a>
+        <a class="nav-item" data-kr="두부교란?" data-en="What is Tofuism?" href="#">두부교란?</a>
+        <a class="nav-item" data-kr="두부교의 역사" data-en="History of Tofuism" href="dubuism-history.html">두부교의 역사</a>
+        <a class="nav-item active-page" data-kr="아침 의식" data-en="Morning Ritual" href="dubuism-morning-ritual.html">아침 의식 <span
+            class="new-badge">NEW</span></a>
+        <a class="nav-item" data-kr="믿어야 하는 이유" data-en="Why Believe" href="#">믿어야 하는 이유</a>
+        <a class="nav-item" data-kr="성지순례 (마트)" data-en="Pilgrimage (Mart)" href="#">성지순례 (마트)</a>
+        <a class="nav-item" data-kr="두부교 찬송가" data-en="Hymn" href="#">두부교 찬송가</a>
+        <a class="nav-item" data-kr="방명록" data-en="Guestbook" href="#">방명록</a>
+
+        <div class="counter-box" style="margin-top:16px">
+          <div class="counter-label" data-kr="오늘의 방문자" data-en="Today's Visitors">오늘의 방문자</div>
+          <div class="counter-num">000247</div>
+        </div>
+        <div class="counter-box" style="margin-top:4px">
+          <div class="counter-label" data-kr="총 방문자" data-en="Total Visitors">총 방문자</div>
+          <div class="counter-num">014823</div>
+        </div>
+        <div class="online-label" data-kr="현재 접속자" data-en="Online Now">현재 접속자</div>
+        <div class="online-num">3 <span data-kr="명" data-en="users">명</span></div>
+      </td>
+
+      <!-- CONTENT -->
+      <td class="content-cell">
+        <a class="back-btn" href="index.html" id="back-btn">◀ 홈으로 돌아가기</a>
+
+        <div class="page-title-box" id="page-title">아침 의식 안내</div>
+
+        <div class="section">
+          <div class="photo-grid">
+            <div class="photo-slot" id="photo-1">
+              <img src="두부교 아침 의식 안내문_페이지_1.jpg" alt="두부교 아침 의식 안내문 1">
+            </div>
+            <div class="photo-slot" id="photo-2">
+              <img src="두부교 아침 의식 안내문_페이지_2.jpg" alt="두부교 아침 의식 안내문 2">
+            </div>
+            <div class="photo-slot" id="photo-3">
+              <img src="두부교 아침 의식 안내문_페이지_3.jpg" alt="Tofuism Morning Ritual Guide 1">
+            </div>
+            <div class="photo-slot" id="photo-4">
+              <img src="두부교 아침 의식 안내문_페이지_4.jpg" alt="Tofuism Morning Ritual Guide 2">
+            </div>
+          </div>
+        </div>
+
+      </td>
+    </tr>
+
+    <!-- FOOTER -->
+    <tr>
+      <td class="footer-cell" colspan="2" id="footer-text">
+        ⓒ 두부교 All Rights Reserved | 무단 복제 금지 | 최적화: Internet Explorer 4.0+ | Netscape Navigator 3.0+<br>
+        최종 업데이트: 2026. 06. 01 | Webmaster: 두부교 홍보부
+      </td>
+    </tr>
+
+  </table>
+
+  <div class="best-viewed" id="best-viewed">
+    ※ 이 페이지는 800x600 해상도에 최적화되어 있습니다
+  </div>
+
+  <script>
+    const content = {
+      kr: {
+        marquee: "✦ 아침 의식은 신앙의 시작입니다 ✦ 두부신님을 매일 아침 맞이하세요 ✦ THE MORNING RITUAL OF TOFUISM ✦",
+        siteTitle: "두 부 교",
+        backBtn: "◀ 홈으로 돌아가기",
+        pageTitle: "아침 의식 안내",
+        sh1: "■ 의식의 절차",
+        sb1: `매일 아침 신자는 다음의 절차를 따릅니다:<br>
+              1. 냉장고를 열고 두부신님의 존재를 확인한다<br>
+              2. 두부신님을 따듯하게 깨운다<br>
+              3. 두부신님을 입으로 받아들이기 전 두부교 기도문을 낭독한다<br>
+              4. 아무런 도구를 사용하지 않고 오로지 입 혹은 손으로만 받아들인다.`,
+        sh2: "■ 의식 사진 갤러리",
+        sb2: "신자들의 아침 의식 현장 기록입니다.",
+        footer: `ⓒ 두부교 All Rights Reserved | 무단 복제 금지 | 최적화: Internet Explorer 4.0+ | Netscape Navigator 3.0+<br>
+                 최종 업데이트: 2026. 06. 01 | Webmaster: 두부교 홍보부`,
+        bestViewed: "※ 이 페이지는 800x600 해상도에 최적화되어 있습니다"
+      },
+      en: {
+        marquee: "✦ THE MORNING RITUAL OF TOFUISM ✦ MAY TOFU BE WITH YOU EACH MORNING ✦",
+        siteTitle: "T O F U I S M",
+        backBtn: "◀ Back to Home",
+        pageTitle: "The Morning Ritual",
+        sh1: "■ The Ritual Procedure",
+        sb1: `Each morning, believers must follow these steps:<br>
+              1. Open the refrigerator and confirm Tofu's existence<br>
+              2. Gently awaken Tofu God by warming it<br>
+              3. Recite the Tofu Prayer before accepting Tofu God into your mouth<br>
+              4. Accept the Tofu God using only your mouth or hands, without any tools.`,
+        sh2: "■ Ritual Photo Gallery",
+        sb2: "A record of believers' morning rituals.",
+        footer: `ⓒ Tofuism All Rights Reserved | Unauthorized reproduction prohibited | Optimized for: Internet Explorer 4.0+ | Netscape Navigator 3.0+<br>
+                 Last updated: 2026. 06. 01 | Webmaster: Tofuism PR Division`,
+        bestViewed: "※ This page is optimized for 800x600 resolution"
+      }
+    };
+
+    function setLang(lang) {
+      const d = content[lang];
+      document.getElementById('marquee-text').textContent = d.marquee;
+      document.getElementById('site-title').textContent = d.siteTitle;
+      document.getElementById('back-btn').textContent = d.backBtn;
+      document.getElementById('page-title').textContent = d.pageTitle;
+      document.getElementById('sh1').textContent = d.sh1;
+      document.getElementById('sb1').innerHTML = d.sb1;
+      document.getElementById('sh2').textContent = d.sh2;
+      document.getElementById('sb2').textContent = d.sb2;
+      document.getElementById('footer-text').innerHTML = d.footer;
+      document.getElementById('best-viewed').textContent = d.bestViewed;
+
+      document.querySelectorAll('.nav-item[data-kr]').forEach(el => {
+        const txt = el.getAttribute('data-' + lang);
+        if (txt) {
+          const badge = el.querySelector('.new-badge');
+          el.textContent = txt;
+          if (badge) el.appendChild(badge);
+        }
+      });
+      document.querySelectorAll('[data-kr]:not(.nav-item)').forEach(el => {
+        const txt = el.getAttribute('data-' + lang);
+        if (txt) el.textContent = txt;
+      });
+
+      document.getElementById('btn-kr').classList.toggle('active', lang === 'kr');
+      document.getElementById('btn-en').classList.toggle('active', lang === 'en');
+    }
+  </script>
+
+</body>
+
+</html>

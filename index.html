@@ -1,0 +1,444 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>두부교 공식 홈페이지 - Tofuism Official Homepage</title>
+  <style>
+    @import url('https://fonts.googleapis.com/css2?family=Nanum+Gothic&display=swap');
+
+    * { margin: 0; padding: 0; box-sizing: border-box; }
+
+    body {
+      background: #000080;
+      font-family: 'Nanum Gothic', Arial, sans-serif;
+      padding: 8px;
+      min-height: 100vh;
+    }
+
+    /* ── MARQUEE ── */
+    .marquee-bar {
+      background: yellow;
+      color: #000080;
+      font-weight: bold;
+      font-size: 13px;
+      padding: 3px 0;
+      margin-bottom: 6px;
+      overflow: hidden;
+      white-space: nowrap;
+    }
+    .marquee-inner {
+      display: inline-block;
+      animation: marquee 22s linear infinite;
+    }
+    @keyframes marquee {
+      0%   { transform: translateX(100vw); }
+      100% { transform: translateX(-100%); }
+    }
+
+    /* ── MAIN TABLE ── */
+    .main-table {
+      width: 100%;
+      border: 3px ridge #c0c0c0;
+      background: #c0c0c0;
+      border-collapse: collapse;
+    }
+    .main-table td { vertical-align: top; }
+
+    /* ── HEADER ── */
+    .header-cell {
+      background: #000080;
+      text-align: center;
+      padding: 10px;
+      border-bottom: 2px solid #808080;
+    }
+    .lang-switcher { text-align: right; margin-bottom: 6px; }
+    .lang-btn {
+      background: #c0c0c0;
+      border: 2px outset #ffffff;
+      font-size: 11px;
+      font-weight: bold;
+      padding: 2px 8px;
+      cursor: pointer;
+      color: #000080;
+      font-family: Arial, sans-serif;
+    }
+    .lang-btn:active { border-style: inset; }
+    .lang-btn.active { background: #000080; color: yellow; border-style: inset; }
+    .tofu-logo { font-size: 72px; line-height: 1; display: block; margin-bottom: 4px; }
+    .site-title {
+      font-size: 28px;
+      font-weight: bold;
+      color: #ffffff;
+      text-shadow: 2px 2px #808080;
+      letter-spacing: 4px;
+      font-family: 'Impact', Arial Black, sans-serif;
+    }
+    .site-subtitle { font-size: 11px; color: #808080; font-style: italic; margin-top: 2px; }
+    .stars { color: #ffd700; font-size: 14px; letter-spacing: 2px; margin-top: 4px; }
+
+    /* ── NAV ── */
+    .nav-cell {
+      background: #000080;
+      padding: 8px;
+      width: 160px;
+      min-width: 160px;
+      border-right: 2px ridge #c0c0c0;
+    }
+    .nav-title {
+      color: yellow;
+      font-size: 12px;
+      font-weight: bold;
+      text-align: center;
+      border-bottom: 1px solid yellow;
+      margin-bottom: 6px;
+      padding-bottom: 3px;
+      letter-spacing: 1px;
+    }
+    .nav-item {
+      display: block;
+      color: #ffffff;
+      font-size: 12px;
+      text-decoration: none;
+      padding: 3px 0;
+      border-bottom: 1px dotted #404080;
+    }
+    .nav-item::before { content: "▶ "; color: yellow; font-size: 10px; }
+    .nav-item:hover { color: yellow; background: #000040; }
+    .new-badge {
+      background: red;
+      color: white;
+      font-size: 9px;
+      font-weight: bold;
+      padding: 1px 3px;
+      vertical-align: middle;
+      animation: blink 1s step-end infinite;
+    }
+    .counter-box {
+      background: #000040;
+      border: 1px solid #808080;
+      padding: 4px 8px;
+      text-align: center;
+      margin-top: 8px;
+    }
+    .counter-label { color: #808080; font-size: 10px; }
+    .counter-num {
+      color: #00ff00;
+      font-size: 14px;
+      font-family: 'Courier New', monospace;
+      font-weight: bold;
+      letter-spacing: 2px;
+    }
+    .online-label { font-size: 10px; color: #ffff00; margin-bottom: 3px; margin-top: 10px; text-align: center; }
+    .online-num { color: #00ffff; font-size: 12px; font-family: monospace; text-align: center; }
+
+    /* ── CONTENT ── */
+    .content-cell {
+      background: white;
+      padding: 12px;
+    }
+    .notice {
+      background: #ffeeee;
+      border: 1px solid red;
+      font-size: 11px;
+      color: #cc0000;
+      padding: 4px 8px;
+      margin-bottom: 8px;
+    }
+    .welcome-box {
+      background: #ffffcc;
+      border: 2px solid #ff0000;
+      padding: 8px;
+      margin-bottom: 10px;
+      text-align: center;
+    }
+    .welcome-title { font-size: 16px; color: #cc0000; font-weight: bold; }
+    .welcome-sub { font-size: 11px; color: #333; margin-top: 3px; }
+    .section { margin-bottom: 12px; }
+    .section-header {
+      background: #000080;
+      color: yellow;
+      font-size: 13px;
+      font-weight: bold;
+      padding: 3px 8px;
+      margin-bottom: 6px;
+    }
+    .section-body { font-size: 12px; color: #333; line-height: 1.7; padding: 0 4px; }
+    .divider { border: none; border-top: 2px solid #808080; margin: 8px 0; }
+    .hit-box {
+      display: inline-block;
+      background: black;
+      color: #00ff00;
+      font-family: monospace;
+      font-size: 13px;
+      padding: 2px 6px;
+      border: 1px solid #00ff00;
+      letter-spacing: 3px;
+    }
+
+    /* ── FOOTER ── */
+    .footer-cell {
+      background: #e0e0e0;
+      border-top: 2px ridge #c0c0c0;
+      text-align: center;
+      padding: 4px;
+      font-size: 10px;
+      color: #808080;
+    }
+    .best-viewed {
+      color: #aaaaaa;
+      font-size: 10px;
+      text-align: center;
+      margin-top: 4px;
+    }
+
+    /* ── ANIMATIONS ── */
+    .blink { animation: blink 1s step-end infinite; }
+    @keyframes blink { 0%, 100% { opacity: 1; } 50% { opacity: 0; } }
+  </style>
+</head>
+<body>
+
+  <!-- MARQUEE -->
+  <div class="marquee-bar">
+    <span class="marquee-inner" id="marquee-text">
+      ✦ 두부교 공식 홈페이지에 오신 것을 환영합니다 ✦ 두부는 진리입니다 ✦ 믿어야 존재합니다 ✦ 오늘도 두부와 함께하세요 ✦ THE OFFICIAL HOMEPAGE OF TOFUISM ✦ TOFU IS TRUTH ✦
+    </span>
+  </div>
+
+  <table class="main-table" cellpadding="0" cellspacing="0">
+
+    <!-- HEADER -->
+    <tr>
+      <td class="header-cell" colspan="2">
+        <div class="lang-switcher">
+          <button class="lang-btn active" id="btn-kr" onclick="setLang('kr')">한국어</button>
+          <button class="lang-btn" id="btn-en" onclick="setLang('en')">ENGLISH</button>
+        </div>
+        <img src="16714_20994_5818.png" alt="두부교 로고" style="width: 120px; height: auto; display: block; margin: 0 auto 8px;"></img>
+        <div class="site-title" id="site-title">두 부 교</div>
+        <div class="site-subtitle">― Tofuism Official Homepage v2.1 ―</div>
+        <div class="stars">★ ★ ★ ★ ★</div>
+      </td>
+    </tr>
+
+    <!-- BODY -->
+    <tr>
+
+      <!-- NAV -->
+      <td class="nav-cell">
+        <div class="nav-title">☰ MENU</div>
+        <a class="nav-item" data-kr="홈" data-en="Home" href="#">홈</a>
+        <a class="nav-item" data-kr="두부교란?" data-en="What is Tofuism?" href="#">두부교란?</a>
+        <a class="nav-item" data-kr="두부교의 역사" data-en="History of Tofuism" href="dubuism-history.html">두부교의 역사</a>
+        <a class="nav-item" data-kr="아침 의식" data-en="Morning Ritual" href="dubuism-morning-ritual.html">아침 의식 <span class="new-badge">NEW</span></a>
+        <a class="nav-item" data-kr="믿어야 하는 이유" data-en="Why Believe" href="#">믿어야 하는 이유</a>
+        <a class="nav-item" data-kr="성지순례 (마트)" data-en="Pilgrimage (Mart)" href="#">성지순례 (마트)</a>
+        <a class="nav-item" data-kr="두부교 찬송가" data-en="Hymn" href="#">두부교 찬송가</a>
+        <a class="nav-item" data-kr="방명록" data-en="Guestbook" href="#">방명록</a>
+
+        <div class="counter-box" style="margin-top:16px">
+          <div class="counter-label" data-kr="오늘의 방문자" data-en="Today's Visitors">오늘의 방문자</div>
+          <div class="counter-num">000247</div>
+        </div>
+        <div class="counter-box" style="margin-top:4px">
+          <div class="counter-label" data-kr="총 방문자" data-en="Total Visitors">총 방문자</div>
+          <div class="counter-num">014823</div>
+        </div>
+        <div class="online-label" data-kr="현재 접속자" data-en="Online Now">현재 접속자</div>
+        <div class="online-num">3 <span data-kr="명" data-en="users">명</span></div>
+      </td>
+
+      <!-- CONTENT -->
+      <td class="content-cell">
+        <div class="notice" id="notice-text">
+          ⚠ 이 사이트는 익스플로러 4.0 이상에서 가장 잘 보입니다. 해상도 800×600 권장.
+        </div>
+
+        <div class="welcome-box">
+          <div class="welcome-title" id="welcome-title">🙏 두부교에 오신 것을 환영합니다 🙏</div>
+          <div class="welcome-sub" id="welcome-sub">우리는 믿습니다, 고로 두부는 존재합니다.</div>
+        </div>
+
+        <div class="section">
+          <div class="section-header" id="sh1">■ 두부교란 무엇인가</div>
+          <div class="section-body" id="sb1">
+            두부교는 두부를 중심으로 한 신앙 공동체입니다.<br>
+            굳어진 세상 속에서 부드럽게..<br><br>
+            두부교의 핵심 교리는 단순합니다:<br>
+            <strong>「우리가 믿으므로, 두부는 진리이다.」</strong><br><br>
+            두부는 단순한 식품이 아닙니다. 두부는 우리의 삶이며, 우리의 신앙이며, 우리 자신입니다.
+          </div>
+        </div>
+
+        <hr class="divider">
+
+        <div class="section">
+          <div class="section-header" id="sh2">■ 아침 의식 안내</div>
+          <div class="section-body" id="sb2">
+            매일 아침 신자는 다음의 절차를 따릅니다:<br>
+            1. 냉장고를 열고 두부신님의 존재를 확인한다<br>
+            2. 두부신님을 따듯하게 깨운다<br>
+            3. 두부신님을 입으로 받아들이기 전 두부교 기도문을 낭독한다<br>
+            4. 아무런 도구를 사용하지 않고 오로지 입 혹은 손으로만 받아들인다.<br><br>
+          </div>
+        </div>
+
+        <hr class="divider">
+
+        <div class="section">
+          <div class="section-header" id="sh3">■ 두부교를 믿어야 하는 이유 TOP 5</div>
+          <div class="section-body" id="sb3">
+            <strong>1.</strong> 두부신님은 배신하지 않는다<br>
+            <strong>2.</strong> 딱딱해진 몸과 마음을 부드럽게 해준다<br>
+            <strong>3.</strong> 모든것을 부드럽고 유연하게 받아들이게 된다<br>
+            <strong>4.</strong> 내가 두부신님이 된다<br>
+            <strong>5.</strong> 경계가 흐려진다
+          </div>
+        </div>
+
+        <hr class="divider">
+
+        <div class="section">
+          <div class="section-header" id="sh4">■ 최근 공지</div>
+          <div class="section-body" id="sb4">
+            <span class="blink" style="color:red; font-size:12px">★ NEW</span>
+            [2026.06.01] 두부교 공식 브이로그 라이브 방송 예정 — 추후 공지<br>
+            [2026.05.15] 두부교 성지순례 (이마트 행) 무사히 완료됨<br>
+            [2026.04.30] 교리 3조 개정: "두부는 반드시 신선해야 한다"
+          </div>
+        </div>
+
+        <div style="text-align:center; margin-top:10px; font-size:11px; color:#808080">
+          <span data-kr="방문자 수:" data-en="Visitor Count:">방문자 수:</span>
+          <span class="hit-box">014823</span>
+        </div>
+      </td>
+    </tr>
+
+    <!-- FOOTER -->
+    <tr>
+      <td class="footer-cell" colspan="2" id="footer-text">
+        ⓒ 두부교 All Rights Reserved | 무단 복제 금지 | 최적화: Internet Explorer 4.0+ | Netscape Navigator 3.0+<br>
+        최종 업데이트: 2026. 06. 01 | Webmaster: 두부교 홍보부
+      </td>
+    </tr>
+
+  </table>
+
+  <div class="best-viewed" id="best-viewed">
+    ※ 이 페이지는 800x600 해상도에 최적화되어 있습니다
+  </div>
+
+  <script>
+    const content = {
+      kr: {
+        marquee: "✦ 두부교 공식 홈페이지에 오신 것을 환영합니다 ✦ 두부는 진리입니다 ✦ 믿어야 존재합니다 ✦ 오늘도 두부와 함께하세요 ✦ THE OFFICIAL HOMEPAGE OF TOFUISM ✦ TOFU IS TRUTH ✦",
+        siteTitle: "두 부 교",
+        notice: "⚠ 이 사이트는 익스플로러 4.0 이상에서 가장 잘 보입니다. 해상도 800×600 권장.",
+        welcomeTitle: "🙏 두부교에 오신 것을 환영합니다 🙏",
+        welcomeSub: "우리는 믿습니다, 고로 두부는 존재합니다.",
+        sh1: "■ 두부교란 무엇인가",
+        sb1: `두부교는 두부를 중심으로 한 신앙 공동체입니다.<br>
+              굳어진 세상 속에서 부드럽게..<br><br>
+              두부교의 핵심 교리는 단순합니다:<br>
+              <strong>「우리가 믿으므로, 두부는 진리이다.」</strong><br><br>
+              두부는 단순한 식품이 아닙니다. 두부는 우리의 삶이며, 우리의 신앙이며, 우리 자신입니다.`,
+        sh2: "■ 아침 의식 안내",
+        sb2: `매일 아침 신자는 다음의 절차를 따릅니다:<br>
+              1. 냉장고를 열고 두부신님의 존재를 확인한다<br>
+              2. 두부신님을 따듯하게 깨운다<br>
+              3. 두부신님을 입으로 받아들이기 전 두부교 기도문을 낭독한다<br>
+              4. 아무런 도구를 사용하지 않고 오로지 입 혹은 손으로만 받아들인다<br><br>`,
+        sh3: "■ 두부교를 믿어야 하는 이유 TOP 5",
+        sb3: `<strong>1.</strong> 두부신님은 배신하지 않는다<br>
+              <strong>2.</strong> 딱딱해진 몸과 마음을 부드럽게 해준다<br>
+              <strong>3.</strong> 모든것을 부드럽고 유연하게 받아들이게 해준다<br>
+              <strong>4.</strong> 내가 두부신님이 된다<br>
+              <strong>5.</strong> 경계가 흐려진다`,
+        sh4: "■ 최근 공지",
+        sb4: `<span class="blink" style="color:red;font-size:12px">★ NEW</span>
+              [2026.06.01] 두부교 공식 브이로그 라이브 방송 예정 — 추후 공지<br>
+              [2026.05.15] 두부교 성지순례 (이마트 행) 무사히 완료됨<br>
+              [2026.04.30] 교리 3조 개정: "두부는 반드시 신선해야 한다"`,
+        footer: `ⓒ 두부교 All Rights Reserved | 무단 복제 금지 | 최적화: Internet Explorer 4.0+ | Netscape Navigator 3.0+<br>
+                 최종 업데이트: 2026. 06. 01 | Webmaster: 두부교 홍보부`,
+        bestViewed: "※ 이 페이지는 800x600 해상도에 최적화되어 있습니다"
+      },
+      en: {
+        marquee: "✦ WELCOME TO THE OFFICIAL HOMEPAGE OF TOFUISM ✦ TOFU IS TRUTH ✦ BELIEVE, THEREFORE IT EXISTS ✦ MAY TOFU BE WITH YOU TODAY ✦ WE BELIEVE, THEREFORE TOFU IS ✦",
+        siteTitle: "T O F U I S M",
+        notice: "⚠ Best viewed in Internet Explorer 4.0 or above. Recommended resolution: 800×600.",
+        welcomeTitle: "🙏 Welcome to Tofuism 🙏",
+        welcomeSub: "We believe, therefore Tofu exists.",
+        sh1: "■ What is Tofuism?",
+        sb1: `Touism is a faith community centered on Tofu.<br>
+              Soften yourself in a hardened world...<br><br>
+              The core doctrine is simple:<br>
+              <strong>「We believe, therefore Tofu is Truth.」</strong><br><br>
+              Tofu is not merely a food. Tofu is our life, our faith, and ourselves`,
+        sh2: "■ The Morning Ritual",
+        sb2: `Each morning, believers must follow these steps:<br>
+              1. Open the refrigerator and confirm Tofu's existence<br>
+              2. Gently awaken Tofu God by warming it<br>
+              3. Recite the Tofu Prayer before accepting Tofu God into your mouth<br>
+              4. Accept the Tofu God using only your mouth or hands, without any tools<br><br>`,
+        sh3: "■ TOP 5 Reasons to Believe",
+        sb3: `<strong>1.</strong> Tofu God never betrays you<br>
+              <strong>2.</strong> Tofu God softens hardened bodies and minds<br>
+              <strong>3.</strong> Tofu God teaches us to accept all things with softness and flexibility.<br>
+              <strong>4.</strong>I become Tofu God<br>
+              <strong>5.</strong> Boundaries begin to dissolve.`,
+        sh4: "■ Recent Announcements",
+        sb4: `<span class="blink" style="color:red;font-size:12px">★ NEW</span>
+              [2026.06.01] Official Tofuism vlog live broadcast coming soon — details TBA<br>
+              [2026.05.15] Holy Pilgrimage to E-mart completed successfully<br>
+              [2026.04.30] Doctrine Article 3 revised: "Tofu must always be fresh"`,
+        footer: `ⓒ Tofuism All Rights Reserved | Unauthorized reproduction prohibited | Optimized for: Internet Explorer 4.0+ | Netscape Navigator 3.0+<br>
+                 Last updated: 2026. 06. 01 | Webmaster: Tofuism PR Division`,
+        bestViewed: "※ This page is optimized for 800x600 resolution"
+      }
+    };
+
+    function setLang(lang) {
+      const d = content[lang];
+
+      document.getElementById('marquee-text').textContent = d.marquee;
+      document.getElementById('site-title').textContent = d.siteTitle;
+      document.getElementById('notice-text').textContent = d.notice;
+      document.getElementById('welcome-title').innerHTML = d.welcomeTitle;
+      document.getElementById('welcome-sub').textContent = d.welcomeSub;
+      document.getElementById('sh1').textContent = d.sh1;
+      document.getElementById('sb1').innerHTML = d.sb1;
+      document.getElementById('sh2').textContent = d.sh2;
+      document.getElementById('sb2').innerHTML = d.sb2;
+      document.getElementById('sh3').textContent = d.sh3;
+      document.getElementById('sb3').innerHTML = d.sb3;
+      document.getElementById('sh4').textContent = d.sh4;
+      document.getElementById('sb4').innerHTML = d.sb4;
+      document.getElementById('footer-text').innerHTML = d.footer;
+      document.getElementById('best-viewed').textContent = d.bestViewed;
+
+      // nav items
+      document.querySelectorAll('.nav-item[data-kr]').forEach(el => {
+        const txt = el.getAttribute('data-' + lang);
+        if (txt) {
+          const badge = el.querySelector('.new-badge');
+          el.textContent = txt;
+          if (badge) el.appendChild(badge);
+        }
+      });
+
+      // counter labels & inline spans
+      document.querySelectorAll('[data-kr]:not(.nav-item)').forEach(el => {
+        const txt = el.getAttribute('data-' + lang);
+        if (txt) el.textContent = txt;
+      });
+
+      document.getElementById('btn-kr').classList.toggle('active', lang === 'kr');
+      document.getElementById('btn-en').classList.toggle('active', lang === 'en');
+    }
+  </script>
+
+</body>
+</html>

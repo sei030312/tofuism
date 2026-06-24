@@ -1,0 +1,623 @@
+<!DOCTYPE html>
+<html lang="ko">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>두부교의 역사 - History of Tofuism</title>
+  <style>
+    @import url('https://fonts.googleapis.com/css2?family=Nanum+Gothic&display=swap');
+
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
+
+    body {
+      background: #000080;
+      font-family: 'Nanum Gothic', Arial, sans-serif;
+      padding: 8px;
+      min-height: 100vh;
+    }
+
+    /* ── MARQUEE ── */
+    .marquee-bar {
+      background: yellow;
+      color: #000080;
+      font-weight: bold;
+      font-size: 13px;
+      padding: 3px 0;
+      margin-bottom: 6px;
+      overflow: hidden;
+      white-space: nowrap;
+    }
+
+    .marquee-inner {
+      display: inline-block;
+      animation: marquee 22s linear infinite;
+    }
+
+    @keyframes marquee {
+      0% {
+        transform: translateX(100vw);
+      }
+
+      100% {
+        transform: translateX(-100%);
+      }
+    }
+
+    /* ── MAIN TABLE ── */
+    .main-table {
+      width: 100%;
+      border: 3px ridge #c0c0c0;
+      background: #c0c0c0;
+      border-collapse: collapse;
+    }
+
+    .main-table td {
+      vertical-align: top;
+    }
+
+    /* ── HEADER ── */
+    .header-cell {
+      background: #000080;
+      text-align: center;
+      padding: 10px;
+      border-bottom: 2px solid #808080;
+    }
+
+    .lang-switcher {
+      text-align: right;
+      margin-bottom: 6px;
+    }
+
+    .lang-btn {
+      background: #c0c0c0;
+      border: 2px outset #ffffff;
+      font-size: 11px;
+      font-weight: bold;
+      padding: 2px 8px;
+      cursor: pointer;
+      color: #000080;
+      font-family: Arial, sans-serif;
+    }
+
+    .lang-btn:active {
+      border-style: inset;
+    }
+
+    .lang-btn.active {
+      background: #000080;
+      color: yellow;
+      border-style: inset;
+    }
+
+    .tofu-logo {
+      font-size: 72px;
+      line-height: 1;
+      display: block;
+      margin-bottom: 4px;
+    }
+
+    .site-title {
+      font-size: 28px;
+      font-weight: bold;
+      color: #ffffff;
+      text-shadow: 2px 2px #808080;
+      letter-spacing: 4px;
+      font-family: 'Impact', Arial Black, sans-serif;
+    }
+
+    .site-subtitle {
+      font-size: 11px;
+      color: #808080;
+      font-style: italic;
+      margin-top: 2px;
+    }
+
+    .stars {
+      color: #ffd700;
+      font-size: 14px;
+      letter-spacing: 2px;
+      margin-top: 4px;
+    }
+
+    /* ── NAV ── */
+    .nav-cell {
+      background: #000080;
+      padding: 8px;
+      width: 160px;
+      min-width: 160px;
+      border-right: 2px ridge #c0c0c0;
+    }
+
+    .nav-title {
+      color: yellow;
+      font-size: 12px;
+      font-weight: bold;
+      text-align: center;
+      border-bottom: 1px solid yellow;
+      margin-bottom: 6px;
+      padding-bottom: 3px;
+      letter-spacing: 1px;
+    }
+
+    .nav-item {
+      display: block;
+      color: #ffffff;
+      font-size: 12px;
+      text-decoration: none;
+      padding: 3px 0;
+      border-bottom: 1px dotted #404080;
+    }
+
+    .nav-item::before {
+      content: "▶ ";
+      color: yellow;
+      font-size: 10px;
+    }
+
+    .nav-item:hover {
+      color: yellow;
+      background: #000040;
+    }
+
+    .nav-item.active-page {
+      color: yellow;
+      font-weight: bold;
+    }
+
+    .new-badge {
+      background: red;
+      color: white;
+      font-size: 9px;
+      font-weight: bold;
+      padding: 1px 3px;
+      vertical-align: middle;
+      animation: blink 1s step-end infinite;
+    }
+
+    .counter-box {
+      background: #000040;
+      border: 1px solid #808080;
+      padding: 4px 8px;
+      text-align: center;
+      margin-top: 8px;
+    }
+
+    .counter-label {
+      color: #808080;
+      font-size: 10px;
+    }
+
+    .counter-num {
+      color: #00ff00;
+      font-size: 14px;
+      font-family: 'Courier New', monospace;
+      font-weight: bold;
+      letter-spacing: 2px;
+    }
+
+    .online-label {
+      font-size: 10px;
+      color: #ffff00;
+      margin-bottom: 3px;
+      margin-top: 10px;
+      text-align: center;
+    }
+
+    .online-num {
+      color: #00ffff;
+      font-size: 12px;
+      font-family: monospace;
+      text-align: center;
+    }
+
+    /* ── CONTENT ── */
+    .content-cell {
+      background: white;
+      padding: 12px;
+    }
+
+    .page-title-box {
+      background: #000080;
+      color: yellow;
+      font-size: 15px;
+      font-weight: bold;
+      padding: 5px 10px;
+      margin-bottom: 12px;
+      text-align: center;
+      border: 2px ridge #c0c0c0;
+    }
+
+    .section {
+      margin-bottom: 14px;
+    }
+
+    .section-header {
+      background: #000080;
+      color: yellow;
+      font-size: 13px;
+      font-weight: bold;
+      padding: 3px 8px;
+      margin-bottom: 6px;
+    }
+
+    .section-body {
+      font-size: 12px;
+      color: #333;
+      line-height: 1.8;
+      padding: 0 4px;
+    }
+
+    .divider {
+      border: none;
+      border-top: 2px solid #808080;
+      margin: 8px 0;
+    }
+
+    .history-img {
+      width: 100%;
+      border: 2px ridge #808080;
+      display: block;
+      margin: 8px 0;
+    }
+
+    .img-caption {
+      font-size: 10px;
+      color: #808080;
+      font-style: italic;
+      text-align: center;
+      margin-bottom: 8px;
+    }
+
+    .timeline-table {
+      width: 100%;
+      border-collapse: collapse;
+      font-size: 12px;
+      margin-top: 4px;
+    }
+
+    .timeline-table th {
+      background: #000080;
+      color: yellow;
+      padding: 3px 8px;
+      text-align: left;
+      border: 1px solid #808080;
+    }
+
+    .timeline-table td {
+      border: 1px solid #808080;
+      padding: 4px 8px;
+      color: #333;
+      background: white;
+      vertical-align: top;
+    }
+
+    .timeline-table tr:nth-child(even) td {
+      background: #f0f0f0;
+    }
+
+    .timeline-year {
+      font-weight: bold;
+      color: #000080;
+      white-space: nowrap;
+    }
+
+    .back-btn {
+      display: inline-block;
+      background: #c0c0c0;
+      border: 2px outset #ffffff;
+      color: #000080;
+      font-size: 11px;
+      font-weight: bold;
+      padding: 2px 8px;
+      text-decoration: none;
+      margin-bottom: 10px;
+      font-family: Arial, sans-serif;
+    }
+
+    .back-btn:hover {
+      background: #d0d0d0;
+    }
+
+    .back-btn:active {
+      border-style: inset;
+    }
+
+    /* ── FOOTER ── */
+    .footer-cell {
+      background: #e0e0e0;
+      border-top: 2px ridge #c0c0c0;
+      text-align: center;
+      padding: 4px;
+      font-size: 10px;
+      color: #808080;
+    }
+
+    .best-viewed {
+      color: #aaaaaa;
+      font-size: 10px;
+      text-align: center;
+      margin-top: 4px;
+    }
+
+    /* ── ANIMATIONS ── */
+    .blink {
+      animation: blink 1s step-end infinite;
+    }
+
+    @keyframes blink {
+
+      0%,
+      100% {
+        opacity: 1;
+      }
+
+      50% {
+        opacity: 0;
+      }
+    }
+  </style>
+</head>
+
+<body>
+
+  <!-- MARQUEE -->
+  <div class="marquee-bar">
+    <span class="marquee-inner" id="marquee-text">
+      ✦ 두부교의 역사 ✦ HISTORY OF TOFUISM ✦ 두부는 태초부터 존재하였다 ✦ IN THE BEGINNING, THERE WAS TOFU ✦
+    </span>
+  </div>
+
+  <table class="main-table" cellpadding="0" cellspacing="0">
+
+    <!-- HEADER -->
+    <tr>
+      <td class="header-cell" colspan="2">
+        <div class="lang-switcher">
+          <button class="lang-btn active" id="btn-kr" onclick="setLang('kr')">한국어</button>
+          <button class="lang-btn" id="btn-en" onclick="setLang('en')">ENGLISH</button>
+        </div>
+        <img src="16714_20994_5818.png" alt="두부교 로고"
+          style="width: 120px; height: auto; display: block; margin: 0 auto 8px;">
+        <div class="site-title" id="site-title">두 부 교</div>
+        <div class="site-subtitle">― Tofuism Official Homepage v2.1 ―</div>
+        <div class="stars">★ ★ ★ ★ ★</div>
+      </td>
+    </tr>
+
+    <!-- BODY -->
+    <tr>
+
+      <!-- NAV -->
+      <td class="nav-cell">
+        <div class="nav-title">☰ MENU</div>
+        <a class="nav-item" data-kr="홈" data-en="Home" href="index.html">홈</a>
+        <a class="nav-item" data-kr="두부교란?" data-en="What is Tofuism?" href="#">두부교란?</a>
+        <a class="nav-item active-page" data-kr="두부교의 역사" data-en="History of Tofuism" href="dubuism-history.html">두부교의
+          역사</a>
+        <a class="nav-item" data-kr="아침 의식" data-en="Morning Ritual" href="#">아침 의식 <span
+            class="new-badge">NEW</span></a>
+        <a class="nav-item" data-kr="믿어야 하는 이유" data-en="Why Believe" href="#">믿어야 하는 이유</a>
+        <a class="nav-item" data-kr="성지순례 (마트)" data-en="Pilgrimage (Mart)" href="#">성지순례 (마트)</a>
+        <a class="nav-item" data-kr="두부교 찬송가" data-en="FAQ" href="#">두부교 찬송가</a>
+        <a class="nav-item" data-kr="방명록" data-en="Guestbook" href="#">방명록</a>
+
+        <div class="counter-box" style="margin-top:16px">
+          <div class="counter-label" data-kr="오늘의 방문자" data-en="Today's Visitors">오늘의 방문자</div>
+          <div class="counter-num">000247</div>
+        </div>
+        <div class="counter-box" style="margin-top:4px">
+          <div class="counter-label" data-kr="총 방문자" data-en="Total Visitors">총 방문자</div>
+          <div class="counter-num">014823</div>
+        </div>
+        <div class="online-label" data-kr="현재 접속자" data-en="Online Now">현재 접속자</div>
+        <div class="online-num">3 <span data-kr="명" data-en="users">명</span></div>
+      </td>
+
+      <!-- CONTENT -->
+      <td class="content-cell">
+        <a class="back-btn" href="index.html" id="back-btn">◀ 홈으로 돌아가기</a>
+
+        <div class="page-title-box" id="page-title">두부교의 역사</div>
+
+        <img src="Firefly_No chair for tofu(only tofu) asian and europe cultures are mixed 196568.png" alt="두부교의 역사" style="width:100%; border: 2px ridge #808080; display:block; margin-bottom: 6px;">
+
+
+        <div class="section-body" id="history-text" style="line-height:2.2; padding: 4px; white-space: pre-line;">
+          세상에는 오직 콩만이 있었다.
+
+          콩은 가능성이었지만,
+          아직 형태를 갖지 못했다.
+
+          인간은 콩을 갈고,
+          끓이고,
+          응고시켰다.
+
+          형태가 없던 것은
+          비로소 하나의 모습이 되었다.
+
+          그리고 사람들은 그것을
+
+          두부
+
+          라고 불렀다.
+
+          두부는 마을에서 마을로,
+          나라에서 나라로 퍼져 나갔다.
+
+          어떤 이는 두부를 음식이라 불렀고,
+
+          어떤 이는 건강이라 불렀다.
+
+          그러나 누구도 두부의 진정한 의미를 알지 못했다.
+
+          어느날 한 노인은 산에서 우연히 두부를 마주쳤다.
+
+          노인의 몸은 굳어져 있었다.
+          산에서 그것을 마주쳤을 때도 마찬가지였다.
+
+          한참을 바라보다가, 천천히 입에 넣었다.
+
+          혀 위에서 저항 없이 부서졌다.
+          그는 몸이 편안해지는 것을 느꼈다.
+
+          그날 밤 그는 남은 두부를 베개 옆에 두고 잠들었다.
+          그의 몸과 마음이 풀어졌다.
+
+          그는 산을 내려가 사람들에게 말했다.
+          이것을 가까이 두라고.
+
+          사람들은 두부 앞에 모여들기 시작했다.
+
+          두부를 먹는 사람들이 늘어났고,
+          잠자리 옆에 두는 사람들이 늘어났고,
+          길을 떠날 때 품에 넣는 사람들이 늘어났다.
+
+          믿음이 모일수록 두부는 더 큰 의미를 갖게 되었다.
+
+          두부는 음식에서 상징이 되었고,
+          상징에서 교리가 되었으며,
+          교리에서 신이 되었다.
+
+          아침마다 두부신을 받아들이며 부드러움을 새겼고,
+          굳어가는 몸과 마음을 느낄 때마다 두부를 곁에 두었다.
+
+          사람들은 두부신 앞에 모여 기도했고,
+          두부를 나누며 서로의 굳은 곳을 알아보았다.
+
+          그리고 마침내 사람들은 선언했다.
+          
+          우리가 믿으므로,
+          두부는 진리이다.
+        </div>
+
+      </td>
+    </tr>
+
+    <!-- FOOTER -->
+    <tr>
+      <td class="footer-cell" colspan="2" id="footer-text">
+        ⓒ 두부교 All Rights Reserved | 무단 복제 금지 | 최적화: Internet Explorer 4.0+ | Netscape Navigator 3.0+<br>
+        최종 업데이트: 2026. 06. 01 | Webmaster: 두부교 홍보부
+      </td>
+    </tr>
+
+  </table>
+
+  <div class="best-viewed" id="best-viewed">
+    ※ 이 페이지는 800x600 해상도에 최적화되어 있습니다
+  </div>
+
+  <script>
+    const content = {
+      kr: {
+        marquee: "✦ 두부교의 역사 ✦ HISTORY OF TOFUISM ✦ 두부는 태초부터 존재하였다 ✦ IN THE BEGINNING, THERE WAS TOFU ✦",
+        siteTitle: "두 부 교",
+        backBtn: "◀ 홈으로 돌아가기",
+        pageTitle: "두부교의 역사",
+        footer: `ⓒ 두부교 All Rights Reserved | 무단 복제 금지 | 최적화: Internet Explorer 4.0+ | Netscape Navigator 3.0+<br>
+                 최종 업데이트: 2026. 06. 01 | Webmaster: 두부교 홍보부`,
+        bestViewed: "※ 이 페이지는 800x600 해상도에 최적화되어 있습니다"
+      },
+      en: {
+        marquee: "✦ HISTORY OF TOFUISM ✦ IN THE BEGINNING, THERE WAS TOFU ✦ 두부는 태초부터 존재하였다 ✦ THE SACRED CHRONICLES ✦",
+        siteTitle: "D U B U Y O",
+        backBtn: "◀ Back to Home",
+        pageTitle: "History of Tofuism",
+        historyText: `In the beginning, there were only soybeans.
+
+Soybeans were possibility, but they had not yet taken form.
+
+Humans ground them, boiled them, and coagulated them.
+
+What had once been formless finally assumed a shape.
+
+And people called it
+
+Tofu.
+
+Tofu spread from village to village, from nation to nation.
+
+Some called tofu food.
+
+Others called it health.
+
+Yet no one understood its true meaning.
+
+One day, an old man encountered tofu by chance in the mountains.
+
+His body had grown rigid with age. It remained so when he first saw it.
+
+He gazed at it for a long while, then slowly placed it in his mouth.
+
+It yielded without resistance upon his tongue. He felt his body begin to relax.
+
+That night, he placed the remaining tofu beside his pillow before sleeping. His body and mind softened.
+
+He descended the mountain and told the people:
+Keep it close.
+
+People began to gather around tofu.
+
+More people ate tofu. More people kept it beside their beds. More people carried it with them when they traveled.
+
+As belief grew, tofu acquired greater meaning.
+
+Tofu became more than food.
+It became a symbol.
+The symbol became a doctrine.
+And the doctrine became a god.
+
+Each morning, believers welcomed the Tofu God into themselves and renewed their commitment to softness.
+
+Whenever they felt their bodies and minds growing rigid, they kept tofu close at hand.
+
+People gathered before the Tofu God and prayed.
+
+They shared tofu with one another and recognized the hardened places within each other.
+
+And at last, the people proclaimed:
+
+Because we believe,
+Tofu is Truth.`,
+        footer: `ⓒ Tofuism All Rights Reserved | Unauthorized reproduction prohibited | Optimized for: Internet Explorer 4.0+ | Netscape Navigator 3.0+<br>
+                 Last updated: 2026. 06. 01 | Webmaster: Tofuism PR Division`,
+        bestViewed: "※ This page is optimized for 800x600 resolution"
+      }
+    };
+
+    function setLang(lang) {
+      const d = content[lang];
+      document.getElementById('marquee-text').textContent = d.marquee;
+      document.getElementById('site-title').textContent = d.siteTitle;
+      document.getElementById('back-btn').textContent = d.backBtn;
+      document.getElementById('page-title').textContent = d.pageTitle;
+      if (d.historyText) document.getElementById('history-text').textContent = d.historyText;
+      document.getElementById('footer-text').innerHTML = d.footer;
+      document.getElementById('best-viewed').textContent = d.bestViewed;
+
+      document.querySelectorAll('.nav-item[data-kr]').forEach(el => {
+        const txt = el.getAttribute('data-' + lang);
+        if (txt) {
+          const badge = el.querySelector('.new-badge');
+          el.textContent = txt;
+          if (badge) el.appendChild(badge);
+        }
+      });
+      document.querySelectorAll('[data-kr]:not(.nav-item)').forEach(el => {
+        const txt = el.getAttribute('data-' + lang);
+        if (txt) el.textContent = txt;
+      });
+
+      document.getElementById('btn-kr').classList.toggle('active', lang === 'kr');
+      document.getElementById('btn-en').classList.toggle('active', lang === 'en');
+    }
+  </script>
+
+</body>
+
+</html>
